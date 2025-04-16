@@ -9,7 +9,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 const MoviesPage = () => {
   const [searchedFilm, setSearchedFilm] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [hasSearched, setHasSearched] = useState(false); // Стан щоб знати, що користувач вже щось шукав
+  const [hasSearched, setHasSearched] = useState(false);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query") || "";
@@ -24,10 +24,10 @@ const MoviesPage = () => {
         setSearchedFilm(results.data.results);
       } catch (error) {
         console.log("Search error:", error);
-        setSearchedFilm([]); // Порожній список при помилці
+        setSearchedFilm([]);
       } finally {
         setLoading(false);
-        setHasSearched(true); // Ставимо true після першого пошуку
+        setHasSearched(true);
       }
     };
 
@@ -37,7 +37,7 @@ const MoviesPage = () => {
   const handleSearchBarSubmit = ({ query }) => {
     if (!query) return;
     setSearchParams({ query });
-    setHasSearched(false); // Щоб поки чекаємо новий результат — нічого не показувалось
+    setHasSearched(false);
   };
 
   return (
@@ -45,10 +45,8 @@ const MoviesPage = () => {
       <SearchBar onSubmit={handleSearchBarSubmit} />
       {loading && <Loader />}
 
-      {/* Покажемо NotFoundPage лише якщо був запит і нічого не знайдено */}
       {!loading && hasSearched && searchedFilm.length === 0 && <NotFoundPage />}
 
-      {/* Якщо є фільми — показуємо список */}
       {!loading && searchedFilm.length > 0 && (
         <MovieList movies={searchedFilm} />
       )}
