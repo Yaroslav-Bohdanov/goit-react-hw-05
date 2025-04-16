@@ -1,0 +1,31 @@
+header {
+  background-color: #fcc7c7;
+  padding: 10px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-list li {
+  font-size: 18px;
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.active {
+  color: #ff6347;
+  font-weight: bold;
+}

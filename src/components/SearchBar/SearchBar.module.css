@@ -1,0 +1,23 @@
+.formWrapper {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.formInput {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: 300px;
+  border-bottom: 2px solid rgb(161, 29, 29);
+  padding: 10px;
+}
+.button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
